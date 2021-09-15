@@ -1,7 +1,7 @@
 #+TITLE: mathex
 
-* mathex
-`mathex` convert a natural formula into TeX.
+~mathex~ converts a natural maths formula into TeX.
+
 * Examples
 ** Limit
 ~limit as x -> 0 of sin(x)/x is 1~

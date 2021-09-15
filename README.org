@@ -2,3 +2,8 @@
 
 * mathex
 `mathex` convert a natural formula into TeX.
+* Examples
+** Integral
+~integral from a to b of f(x) dx~
+~\int_{a}^{b}f\left(x\right)dx~
+\(\int_{a}^{b}f\left(x\right)dx\)

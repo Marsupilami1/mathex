@@ -3,7 +3,11 @@
 * mathex
 `mathex` convert a natural formula into TeX.
 * Examples
+** Limit
+~limit as x -> 0 of sin(x)/x is 1~
+
+~\dfrac{\sin\left(x\right)}{x}\xrightarrow[x\rightarrow 0]{} 1~
 ** Integral
 ~integral from a to b of f(x) dx~
+
 ~\int_{a}^{b}f\left(x\right)dx~
-\(\int_{a}^{b}f\left(x\right)dx\)

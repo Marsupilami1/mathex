@@ -7,6 +7,8 @@
 ~1 + 2x / 3 - y~
 
 ~1+\dfrac{2x}{3}-y~
+#+CAPTION: test
+#+NAME: test
 [[https://latex.codecogs.com/gif.latex?1+\dfrac{2x}{3}-y]]
 ** Limit
 ~limit as x -> 0 of sin(x)/x is 1~

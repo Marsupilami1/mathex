@@ -3,6 +3,7 @@
 ~mathex~ converts a natural maths formula into TeX.
 
 * Examples
+For a complete overview of the possibilities, please look at the file ~test/test.txt~.
 ** Simple formula
 ~1 + 2x / 3 - y~
 

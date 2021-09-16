@@ -1,28 +1,33 @@
 module Main where
 
-import Parser
 import Expression
+import Parser
 import PMonad
 
-import System.IO
 import Control.Monad (forM_)
+import System.IO
+import System.Environment (getArgs)
+import System.Exit (exitWith, ExitCode(..))
+
 
 main :: IO ()
--- main = runTest
--- main = do
---   s <- getLine
---   case runP parse s of
---     Right t -> print t
---     Left err -> print err
 main = do
+  args <- getArgs
+  forM_ args $ \arg ->
+    case arg of
+      "-t" -> runTest
+      _    -> failWith "Unknown command line argument."
+
+  convertStdIn
+
+
+convertStdIn :: IO ()
+convertStdIn = do
   contents <- getLine
-  let result = do
-        exp' <- parse
-        texify exp'
+  let result = parse >>= texify
   case runP result contents of
-    Right t -> putStr t
-    Left err -> do
-      hPutStrLn stderr err
+    Right formula -> putStr formula
+    Left err -> failWith err
 
 runTest :: IO ()
 runTest = do
@@ -37,3 +42,9 @@ runTest = do
       Left err -> do
         hPutStrLn stderr err
         hPutStrLn stderr $ s ++ "\n"
+  exitWith ExitSuccess
+
+failWith :: String -> IO ()
+failWith err = do
+  hPutStrLn stderr err
+  exitWith $ ExitFailure 1

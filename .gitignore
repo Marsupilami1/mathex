@@ -4,6 +4,8 @@
 tmp/
 
 dist
+newdist
+CHANGELOG.md
 dist-*
 cabal-dev
 *.o

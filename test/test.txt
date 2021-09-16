@@ -29,3 +29,6 @@ n! = 1 * 2 * ... * n = product for  k = 1 to n of k
 x ^ y != y ** x
 10 == 3 [7]
 (f(x) propto x <=> 1 = 1) => (:ze(x) = 0 => Re(x)=1/2)
+x = a + bi
+Re(x) = a
+Im(x) = b

@@ -66,8 +66,6 @@ for       { TFor         }
 lim       { TLim         }
 as        { TAs          }
 is        { TIs          }
-forall    { TForall      }
-in        { TIn          }
 
 
 
@@ -127,7 +125,6 @@ Exp :: { Exp }
     | integral from Exp to Exp of Exp { Super "\\int" $3 $5 $7 }
     | sum for Exp to Exp of Exp       { Super "\\sum" $3 $5 $7      }
     | product for Exp to Exp of Exp   { Super "\\prod" $3 $5 $7      }
-    | forall Exp in Exp               { Forall $2 $4      }
 
     | fun                             { Fun $1   }
     | value                           { Const $1 }

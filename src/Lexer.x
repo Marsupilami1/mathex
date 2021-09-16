@@ -69,8 +69,8 @@ tokens :-
   (limit|lim)                 { const TLim         }
   as                          { const TAs          }
   is                          { const TIs          }
-  forall                      { const TForall      }
-  in                          { const TIn          }
+  forall                      { const $ TValue $ Value $ "\\forall " }
+  in                          { const $ TValue $ Value $ "\\in "     }
   ":"$alpha+                  { TValue . Special   }
   "-"?[$alpha $digit]+        { TValue . Value     }
   $digit+"."$digit+           { TValue . Value . replace "." "," }

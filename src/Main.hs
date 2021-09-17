@@ -28,6 +28,7 @@ runTest = do
   h <- openFile "test/test.txt" ReadMode
   contents <- hGetContents h
   forM_ (lines contents) convertString
+  hClose h
   exitWith ExitSuccess
 
 convertString :: String -> IO ()

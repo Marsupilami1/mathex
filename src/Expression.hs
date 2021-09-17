@@ -3,7 +3,6 @@ module Expression where
 import qualified Data.Map as Map
 import Control.Monad.Except
 import PMonad
-import Token
 
 data Exp
   = Const Value
@@ -29,7 +28,7 @@ binOps a b = Map.fromList
   , ("^",  a ++ "^{"       ++ b ++ "}")
   , ("_",  a ++ "_{"       ++ b ++ "}")
   , ("and", a ++ "\\wedge " ++ b)
-  , ("or",  a ++ "\\vee "    ++ b)
+  , ("or",  a ++ "\\vee "  ++ b)
   , ("=",  a ++ "="        ++ b)
   , ("==", a ++ "\\equiv " ++ b)
   , (">",  a ++ ">"        ++ b)
@@ -42,7 +41,7 @@ binOps a b = Map.fromList
   , ("/=", a ++ "\\neq "      ++ b)
   , ("~=", a ++ "\\approx "   ++  b)
   , ("propto", a ++ "\\propto " ++  b)
-  , ("<=>", a ++ "\\iff "  ++  b)
+  , ("<=>", a ++ "\\iff "     ++  b)
   , ("=>",  a ++ "\\implies "        ++  b)
   , ("->",  a ++ "\\rightarrow "     ++  b)
   , ("-->", a ++ "\\longrightarrow " ++  b)
@@ -75,7 +74,8 @@ special = Map.fromList
   , ("Rh", "P"), ("Si", "\\Sigma "), ("Ta", "T"), ("Up", "\\Upsilon ")
   , ("Ph", "\\Phi "), ("Ch", "X"), ("Ps", "\\Psi "), ("Om", "\\Omega ")
   -- Maths symbols
-  , ("inf", "\\infty"), ("pinf", "+\\infty"), ("minf", "-\\infty")
+  , ("inf", "\\infty "), ("pinf", "+\\infty "), ("minf", "-\\infty ")
+  , ("N", "\\mathbb{N} "), ("R", "\\mathbb{R} "), ("C", "\\mathbb{C} ")
   ]
 
 

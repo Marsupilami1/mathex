@@ -98,7 +98,7 @@ Exp :: { Exp }
     | Exp '_'   Exp          { BinOp "_"   $1 $3 }
     | Exp '=='  Exp          { BinOp "=="  $1 $3 }
     | Exp '/='  Exp          { BinOp "/="  $1 $3 }
-    | Exp propto  Exp        { BinOp "propto"  $1 $3 }
+    | Exp propto Exp         { BinOp "propto"  $1 $3 }
     | Exp '<=>' Exp          { BinOp "<=>"  $1 $3 }
     | Exp '=>'  Exp          { BinOp "=>"  $1 $3 }
     | Exp '<'   Exp          { BinOp "<"   $1 $3 }

@@ -6,7 +6,7 @@
 LaTeX mathematical formulas are pretty, but long to type.
 In fact, it's too long for note taking, so I wanted a simple and fast way to write LaTeX formulas.
 This is also a personal training to lexing and parsing in Haskell.
-I personaly add a shortcut in my editor to quickly convert "natural formulas".
+I personaly add a shortcut in my text editor to quickly convert "natural formulas".
 * Examples
 For a complete overview of the possibilities, please look at the file ~test/test.txt~.
 ** Simple formula

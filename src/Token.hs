@@ -11,6 +11,7 @@ data Token
   | TCP
   | TOS
   | TCS
+  | TPipe
   | TSemicolon
   | TComma
   | TMinus
@@ -24,7 +25,6 @@ data Token
   | TDots
   | TAnd
   | TOr
-  | TPipe
   | TPower
   | TUnderscore
   | TLongEqual
@@ -56,6 +56,7 @@ data Token
   | TIs
   | TForall
   | TIn
+  | TNotIn
   | TEOF
   deriving Show
 

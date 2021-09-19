@@ -12,7 +12,7 @@ import Codec.Binary.UTF8.String
 }
 
 @fun   = ("cos"|"sin"|"tan"|"acos"|"asin"|"atan"|"log"|"ln"|"exp"
-         |"Im"|"Re"|"Ker"|"lim")
+         |"Im"|"Re"|"Ker")
 $alpha = [a-zA-Z]
 $digit = [0-9]
 
@@ -26,6 +26,7 @@ tokens :-
   ")"                         { const TCP          }
   "["                         { const TOS          }
   "]"                         { const TCS          }
+  "|"                         { const TPipe        }
 
   ";"                         { const TSemicolon   }
   ","                         { const TComma       }
@@ -39,7 +40,6 @@ tokens :-
   "/"                         { const TSlash       }
   ("&&"|and)                  { const TAnd         }
   ("||"|or)                   { const TOr          }
-  "|"                         { const TPipe        }
   ("^"|"**")                  { const TPower       }
   "_"                         { const TUnderscore  }
   "=="                        { const TLongEqual   }
@@ -71,6 +71,7 @@ tokens :-
   is                          { const TIs          }
   forall                      { const $ TValue $ Value $ "\\forall " }
   in                          { const $ TValue $ Value $ "\\in "     }
+  notin                       { const $ TValue $ Value $ "\\notin "  }
   ":"$alpha+                  { TValue . Special   }
   "-"?[$alpha $digit]+        { TValue . Value     }
   $digit+"."$digit+           { TValue . Value . replace "." "," }

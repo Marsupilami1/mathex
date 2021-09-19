@@ -62,11 +62,11 @@ special :: Map.Map String String
 special = Map.fromList
   -- Greek letters
   [ ("al", "\\alpha "), ("be", "\\beta "), ("ga", "\\gamma "), ("de", "\\delta ")
-  , ("ep", "\\epsilon "), ("ze", "\\zeta "), ("et", "\\eta "), ("th", "\\theta ")
+  , ("ep", "\\varepsilon "), ("ze", "\\zeta "), ("et", "\\eta "), ("th", "\\theta ")
   , ("io", "\\iota "), ("ka", "\\kappa "), ("la", "\\lambda "), ("mu", "\\mu ")
   , ("nu", "\\nu "), ("xi", "\\xi "), ("oo", "\\omicron "), ("pi", "\\pi ")
   , ("rh", "\\rho "), ("si", "\\sigma "), ("ta", "\\tau "), ("up", "\\upsilon ")
-  , ("ph", "\\phi "), ("ch", "\\chi "), ("ps", "\\psi "), ("om", "\\omega ")
+  , ("ph", "\\varphi "), ("ch", "\\chi "), ("ps", "\\psi "), ("om", "\\omega ")
   , ("Al", "A"), ("Be", "B"), ("Ga", "\\Gamma "), ("De", "\\Delta ")
   , ("Ep", "E"), ("Ze", "Z"), ("Et", "H"), ("Th", "\\Theta ")
   , ("Io", "I"), ("Ka", "K"), ("La", "\\Lambda "), ("Mu", "M")

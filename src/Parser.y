@@ -25,6 +25,7 @@ value     { TValue $$    }
 ')'       { TCP          }
 '['       { TOS          }
 ']'       { TCS          }
+'|'       { TPipe        }
 ';'       { TSemicolon   }
 ','       { TComma       }
 '-'       { TMinus       }
@@ -71,6 +72,7 @@ is        { TIs          }
 
 %right '<=>' '=>'
 %right '=' '~=' '/=' '==' '~' '->' '-->' is propto
+%left ';' ','
 %left of
 %left or
 %left and
@@ -78,9 +80,8 @@ is        { TIs          }
 %left '+' '-'
 %left '*' '/'
 %left '^' '_'
-%left ';' ','
 %nonassoc '!' not '+-' '-+'
-%left '(' ')' '{' '}' '[' ']' integral sum product lim fun value forall in
+%left '(' ')' '{' '}' '[' ']' '|' integral sum product lim fun value forall in
 %%
 
 Exp :: { Exp }
@@ -118,13 +119,14 @@ Exp :: { Exp }
     | '-+'  Exp              { UnOp "-+"  $2 }
 
     | '(' Exp ')'            { Brace "(" ")" $2                }
-    | '{' Exp '}'            { Brace "\\lbrace" "\\rbrace" $2  }
+    | '{' Exp '}'            { Brace "\\lbrace " "\\rbrace " $2  }
     | '[' Exp ']'            { Brace "[" "]" $2                }
+    | '|' Exp '|'            { Brace "\\lvert " "\\rvert " $2    }
 
-    | lim as Exp of Exp is Exp        { Limit $3 $5 $7    }
-    | integral from Exp to Exp of Exp { Super "\\int" $3 $5 $7 }
-    | sum for Exp to Exp of Exp       { Super "\\sum" $3 $5 $7      }
-    | product for Exp to Exp of Exp   { Super "\\prod" $3 $5 $7      }
+    | lim as Exp of Exp is Exp        { Limit $3 $5 $7          }
+    | integral from Exp to Exp of Exp { Super "\\int" $3 $5 $7  }
+    | sum for Exp to Exp of Exp       { Super "\\sum" $3 $5 $7  }
+    | product for Exp to Exp of Exp   { Super "\\prod" $3 $5 $7 }
 
     | fun                             { Fun $1   }
     | value                           { Const $1 }

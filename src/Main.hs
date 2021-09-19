@@ -27,14 +27,15 @@ runTest :: IO ()
 runTest = do
   h <- openFile "test/test.txt" ReadMode
   contents <- hGetContents h
-  forM_ (lines contents) convertString
+  forM_ (lines contents) $ \s ->
+    convertString s >> putStrLn ""
   hClose h
   exitWith ExitSuccess
 
 convertString :: String -> IO ()
 convertString s =
     case runP (parse >>= texify) s of
-      Right t -> putStrLn t
+      Right t -> putStr t
       Left err -> failWith $ err ++ "\n"
 
 failWith :: String -> IO ()

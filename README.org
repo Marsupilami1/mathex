@@ -1,0 +1,7 @@
+#+TITLE: mathex
+#+DESCRIPTION: mathex, a math to LaTeX converter
+
+* Install
+Clone the repo and run ~stack install~.
+
+*

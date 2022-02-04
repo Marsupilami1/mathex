@@ -3,5 +3,3 @@
 
 * Install
 Clone the repo and run ~stack install~.
-
-*

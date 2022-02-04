@@ -72,6 +72,7 @@ tokens :-
   forall                      { const $ TValue $ Value $ "\\forall " }
   in                          { const $ TValue $ Value $ "\\in "     }
   notin                       { const $ TValue $ Value $ "\\notin "  }
+  O                           { const $ TValue $ Value $ "\\mathcal{O} "  }
   ":"$alpha+                  { TValue . Special   }
   "-"?[$alpha $digit]+        { TValue . Value     }
   $digit+"."$digit+           { TValue . Value . replace "." "," }
